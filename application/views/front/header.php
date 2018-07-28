@@ -10,23 +10,8 @@
     <title>Online Book Store</title>
 
     <meta name="keywords" content="">
-<style>
-    #ex4 .p1[data-count]:after{
-  position:absolute;
-  right:8%;
-  top:8%;
-  content: attr(data-count);
-  font-size:40%;
-  padding:.2em;
-  border-radius:50%;
-  line-height:1em;
-  color: white;
-  background:rgb(14, 112, 112);
-  text-align:center;
-  /*min-width: 1em;*/
-  //font-weight:bold;
-}
-</style>
+
+
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
     
     <!-- Bootstrap and Font Awesome css -->
@@ -75,33 +60,12 @@ _________________________________________________________ -->
                             <input type='text' name='search' placeholder="Search for book title, author, isbn, etc.">
                             <button type="submit"   class="btn btn-xs btn-template-main" title='search'><i class="fa fa-search"></i></button>
                         </div>
-                           <!--  <?php
-                            // echo form_open('search_controller/search');
-
-                            // echo form_input(array('name'=>'search'));
-
-                            // echo form_submit('search_submit','Search');
-                            ?>  -->
+                           
                              </form>
                         </div>
-                        <div class="col-xs-5 contact">
-                            <p class="hidden-md hidden-lg"><a href="#" data-animate-hover="pulse"><i class="fa fa-phone"></i></a>  <a href="#" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
-                            </p>
-                        </div>
+                        
                         <div class="col-xs-7">
-                           <!--  <div class="social">
-
-                                <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-                                <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-                                <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
-                            </div> -->
-
-                            <!-- <div class="login">
-                                <a href="#" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Sign in</span></a>
-                                <a href="customer-register.html"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">Sign up</span></a>
-                            </div> -->
-
+                           
                         </div>
                     </div>
                 </div>
@@ -137,12 +101,8 @@ _________________________________________________________ -->
                             <ul class="nav navbar-nav navbar-right">
                                 
                                 <li class="dropdowm active">
-                                    <a href="<?=site_url('front/cart_controller');?>" class="dropdown-toggle"><div id="ex4">
-                              <span class="p1 fa-stack fa-2x has-badge">
-                              
-                                <i class="p3 fa fa-shopping-cart fa-stack-1x xfa-inverse" data-count="4b"></i>
-                              </span>
-                            </div></a></li>
+                                    <a href="<?=site_url('front/cart_controller');?>" class="dropdown-toggle"><i class="fa fa-shopping-cart fa-lg" style="margin-top: -9px;"></i>
+                            </a></li>
                                                             
                                 <li class="dropdown active">
                                     <a href="<?=site_url('front/shop_controller/view/view');?>" class="dropdown-toggle" >Home <b></b></a>

@@ -52,6 +52,9 @@ _________________________________________________________ -->
 			_________________________________________________________ -->
 
                     <div class="col-sm-3">
+                          <?php 
+                            $this->load->view('front/sidebar.php');
+                        ?>
 
                         <!-- *** MENUS AND FILTERS ***
  _________________________________________________________ -->
@@ -79,47 +82,40 @@ _________________________________________________________ -->
 
                         <div class="row products" style=" display: flex; flex-flow: row wrap;">
                             <?php
-                                $i=1;   
-                                foreach($records as $r){
+                                // $i=1;   
+                                foreach($results as $val):
                             ?>
 
                             <div class="col-md-4 col-sm-5">
                                 <div class="product">
                                     <div class="image">
-                                        <a href="http://localhost/interface-bookstore/front/bookdetail_controller/?id=<?php echo $r->book_id?>">
-                                            <img src="<?= site_url('uploads/bookdetail/'.$r->image);?>" alt="<?= site_url('uploads/bookdetail/'.$r->image);?>" height="250" width="200" class="img-responsive">
+                                        <a href="http://localhost/interface-bookstore/front/bookdetail_controller/?id=<?php echo $val->book_id?>">
+                                            <img src="<?= site_url('uploads/bookdetail/'.$val->image);?>" alt="<?= site_url('uploads/bookdetail/'.$val->image);?>" height="250" width="200" class="img-responsive">
                                         </a>
                                     </div>
 
                                     <!-- /.image -->
-                                    <div class="text">
-                                        <h3><a href="http://localhost/interface-bookstore/front/bookdetail_controller/?id=<?php echo $r->book_id?>"><?php echo $r->book_title;?></a></h3> 
-                                        <!-- <h5 class="price">By </h5>
-                                        <h3><a href="http://localhost/interface-bookstore/front/bookdetail_controller/?id=<?php echo $r->book_id?>"> <?php echo $r->book_author;?></a></h3>
+                                   <!--  <div class="text">
+                                        <h3><a href="http://localhost/interface-bookstore/front/bookdetail_controller/?id=<?php echo $val->book_id?>"><?php echo $val->book_title;?></a></h3> 
+                                        <h3><a href="http://localhost/interface-bookstore/front/bookdetail_controller/?id=<?php echo $val->book_id?>"> <?php echo $val->book_author;?></a></h3>
                                         
-                                        <p class="price">NRs. <?php echo $r->price;?></p> -->
                                         <span style="display: inline-block;">
                                         <p class="buttons">
                                             <form action="<?=site_url('front/cart_controller/add_to_cart');?>" method="post" style="display: inline;">
-                                                <input type="hidden" name="id" value="<?php echo $r->book_id;?>">
-                                                <input type="hidden" name="book_title" value="<?php echo $r->book_title;?>">
-                                                <input type="hidden" name="price" value="<?php echo $r->price;?>">
-
-                                                <button type="submit" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i></button>
+                                                <button title="Add to cart" type="submit" class="btn btn-template-main"><i class="fa fa-shopping-cart"></i></button>
                                             </form>
-                                            <!--  -->
+                                            <form action="<?=site_url('front/wishlist_controller/add');?>" method="POST" style="display: inline;">
+                                                <input type="hidden" id="book_id" name="book_id" value="<?php echo $val->book_id;?>">
+                                            <button title="Add to wishlist" type="submit" class="btn btn-template-main" id="save"><span class="glyphicon glyphicon-heart"></span></button>
+                                            </form>
                                         </p>
                                         </span>
-                                    </div>
+                                    </div> -->
                                     <!-- /.text -->
                                 </div>
                                 <!-- /.product -->
                             </div>
-                            <?php
-                                $i++;
-                            }
-                         ?>                               
-                            <!-- /.col-md-4 -->
+<?php endforeach;?>                            <!-- /.col-md-4 -->
                         </div>
                             <!-- /.col-md-4 -->
                         </div>
@@ -129,15 +125,12 @@ _________________________________________________________ -->
 
                         <div class="pages">
 
-                           
+                            <p class="loadMore">
+                                <a href="#" class="btn btn-template-main"><i class="fa fa-chevron-down"></i> Load more</a>
+                            </p>
 
-                            
-
-                                <?php if(isset($links)){ ?>
-                                    <?php echo $links; ?>
-                                <?php }?>
-                                 
-                               <!--  <li><a href="#">&laquo;</a>
+                            <ul class="pagination">
+                                <li><a href="#">&laquo;</a>
                                 </li>
                                 <li class="active"><a href="#">1</a>
                                 </li>
@@ -150,7 +143,8 @@ _________________________________________________________ -->
                                 <li><a href="#">5</a>
                                 </li>
                                 <li><a href="#">&raquo;</a>
-                                </li> -->
+                                </li>
+                            </ul>
                         </div>
 
 
